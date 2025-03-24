@@ -1,0 +1,46 @@
+<div class="container">
+<mat-card>
+<form [formGroup]="productForm" (ngSubmit)="save()">
+    <div class="row" formArrayName="products"
+       *ngFor="let product of products.controls; let i = index" >
+       <div [formGroupName]="i">
+        <div class="col-6">
+        <mat-form-field>
+            <mat-label>Product Name</mat-label>
+            <input matInput formControlName="name">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Price</mat-label>
+            <input matInput formControlName="price">
+          </mat-form-field>
+          </div>
+          <div class="col-6">
+          <mat-form-field>
+            <mat-label>Catergory</mat-label>
+            <mat-select formControlName="category">
+              <mat-option value="one">First</mat-option>
+              <mat-option value="two">Second</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Instock</mat-label>
+            <mat-select formControlName="instock">
+              <mat-option value="one">YES</mat-option>
+              <mat-option value="two">No</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        </div>
+        <button mat-flat-button (click)="remove(i)" >remove</button>
+    </div>
+    
+    <br/>
+    <button mat-flat-button (click)="addProduct()" >Add</button>
+</form>
+<div>
+    <br/>
+    <button mat-flat-button (click)="save()">Save</button>
+    
+</div>
+</mat-card>
+</div>

@@ -1,0 +1,22 @@
+<!-- <app-login [userData]="data" (sendDataBack)="datafromchild($event)"></app-login> -->
+ <app-login><p #refEle style ="color: aqua;font-weight: 600;">Login component works with ng-content</p></app-login>
+ <app-login></app-login>
+ <app-login></app-login>
+<button (click)="sendData()">Reg</button>
+
+<button (click)="accessChild()">Access Child Component</button>
+<button (click)="accessAllChildren()">Access All Child Component</button>
+
+<div *ngIf="isVisible ;else temref ">
+    <ng-container *ngTemplateOutlet="ref"></ng-container>
+</div>
+
+
+<ng-template #temref>
+  <p style="color:bule;background-color: antiquewhite;">testing of else of ng-template</p>
+</ng-template>
+
+
+<ng-template #ref>
+<p>ng-template working !!!!</p>
+</ng-template>

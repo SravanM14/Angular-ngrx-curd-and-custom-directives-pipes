@@ -1,0 +1,24 @@
+{
+  "products": [
+    {
+      "name": "Ngrx",
+      "price": "5000",
+      "id": "713b"
+    },
+    {
+      "name": "Petrol",
+      "price": "11000",
+      "id": "3355"
+    },
+    {
+      "id": "1ca8",
+      "name": "telugu book",
+      "price": "5000"
+    },
+    {
+      "id": "5416",
+      "name": "petrol",
+      "price": "5000"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+
+    <div class="grid">
+        <div class="g-col-4"></div>
+        <div class="g-col-4">
+            
+            
+        </div>
+        <div class="g-col-4"></div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+          </div>
+          <div class="col pad">
+            <h4>Create Product</h4>
+            <mat-card>
+                <form class="example-form" [formGroup]="ProductForm">
+                    <p>
+                        <mat-form-field appearance="outline">
+                          <mat-label>Product</mat-label>
+                          <input matInput formControlName="product" placeholder="product">
+                        </mat-form-field>
+                      </p>
+                      <p>
+                        <mat-form-field appearance="outline">
+                          <mat-label>Price</mat-label>
+                          <input matInput placeholder="Price"  formControlName="price">
+                        </mat-form-field>
+                      </p>
+                  
+                      <button mat-flat-button type = "submit" [disabled]="ProductForm.invalid"  (click)="SaveProduct()">{{buttonText}}</button>
+            
+                </form> 
+            </mat-card>
+          </div>
+          <div class="col">
+           
+          </div>
+        </div>
+      </div>

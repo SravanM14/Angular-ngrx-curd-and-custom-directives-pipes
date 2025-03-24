@@ -1,0 +1,13 @@
+.flex{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    align-content: center;
+    color:#fff;
+}
+.flex div{
+    height: 100px;
+    width:200px;
+    background-color:blueviolet;
+}

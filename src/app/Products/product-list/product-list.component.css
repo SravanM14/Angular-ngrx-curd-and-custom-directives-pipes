@@ -1,0 +1,18 @@
+.edit{
+    color:orange;
+    cursor: pointer;
+}
+.delete{
+    color:red;
+    cursor: pointer;
+
+}
+
+.text-center{
+    text-align: center;
+    font-size: 20px;
+    background-color: #ccc;
+    padding:10px;
+    border-radius: 10px;
+    margin:20px 10px 10px;
+}

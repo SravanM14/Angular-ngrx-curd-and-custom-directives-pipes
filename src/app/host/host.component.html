@@ -1,0 +1,9 @@
+<p>host works!</p>
+
+<div #container></div>
+
+
+<div [@toggleState]="isOpen ? 'open': 'close'" (click)="toggle()" 
+class="box">
+    click me for animations
+</div>
