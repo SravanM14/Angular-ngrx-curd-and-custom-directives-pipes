@@ -1,6 +1,6 @@
 <div class="container">
 <mat-card>
-<form [formGroup]="productForm" (ngSubmit)="save()">
+<!-- <form [formGroup]="productForm" (ngSubmit)="save()">
     <div class="row" formArrayName="products"
        *ngFor="let product of products.controls; let i = index" >
        <div [formGroupName]="i">
@@ -36,7 +36,7 @@
     
     <br/>
     <button mat-flat-button (click)="addProduct()" >Add</button>
-</form>
+</form> -->
 <div>
     <br/>
     <button mat-flat-button (click)="save()">Save</button>
