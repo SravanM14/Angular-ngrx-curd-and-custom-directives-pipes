@@ -1,12 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { product } from '../Models/UI-interfaces/product.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
+   
+  count = new BehaviorSubject(0);
+
   baseUrl="http://localhost:3000/products"
   constructor(private http:HttpClient) { }
 
@@ -28,5 +31,9 @@ export class ProductService {
   }
   deleteProduct(id:any){
     return this.http.delete(`${this.baseUrl}/${id}`)
+  }
+
+  changeCount(val:number){
+    this.count.next(val);
   }
 }

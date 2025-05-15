@@ -27,7 +27,7 @@ import { ProductEffects } from '../../Product-store/product.effects';
     NO_ERRORS_SCHEMA
   ],
   templateUrl: './product-list.component.html',
-  styleUrl: './product-list.component.css'
+  styleUrl: './product-list.component.css',
 })
 export class ProductListComponent implements OnInit{
   destory$ = new Subject<boolean>()

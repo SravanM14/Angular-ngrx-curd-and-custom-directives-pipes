@@ -1,41 +1,63 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
+import { ProductService } from '../../services/product.service';
+import { HoverColorDirecctive } from '../../utils/Hovercolor.directive';
+import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { nonNumbersValidator } from '../../utils/nonNumbersValidator';
 
 @Component({
   selector: 'app-login',
-  imports: [],
+  imports: [HoverColorDirecctive,FormsModule,CommonModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
-  changeDetection:ChangeDetectionStrategy.OnPush
+  //changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent implements OnInit{
-@Input() userData:any;
+  isSubmitted:boolean=false;
+  MyForm!:FormGroup;
+  @Input()
+  area!: number;
 
-number!:number;
+  @Output() h = new EventEmitter<number>()
 
-constructor(private cf:ChangeDetectorRef){}
+  constructor(private serv:ProductService, private fb:FormBuilder){}
+  ngOnInit(): void {
+    this.serv?.count.subscribe(v=>console.log(v,"from service"))
+    this.MyForm = this.fb.group({
+      firstName:['',[Validators.required]],
+      lastName:['',[Validators.required]],
+      age:['',[Validators.required, nonNumbersValidator]],
+      skills:this.fb.array([])
+    })
+  }
 
-@Output() sendDataBack = new EventEmitter<any>();
+   get skills(){
+   return this.MyForm.get('skills') as FormArray;
+   }
 
-ngOnInit(): void {
- // console.log(this.userData)
-}
-ngOnChanges(simpleChanges:SimpleChanges){
-  //console.log(this.userData, "form parent")
-  console.log(simpleChanges)
-}
-
-sendDataBackmethod(){
-  this.sendDataBack.emit(this.userData);
-}
-
-
-loginC(){
-
-  console.log("login")
-  return "Login-component"
-}
-
-
+   
+   newSkill(){
+      return this.fb.group({
+        skill:'',
+        experience:['',[Validators.required, nonNumbersValidator]]
+      })
+   }
 
 
+   addSkill(){
+    this.skills.push(this.newSkill());
+   }
+
+   remove(i:number){
+    this.skills.removeAt(i);
+   }
+  setHeight(){
+    this.h.emit(500);
+    console.log("clicked")
+  }
+
+  Submit(){
+
+    console.log(this.MyForm.value);
+  }
 }

@@ -19,5 +19,10 @@ export class appHighliteDirective{
     this.render.setStyle(this.ele.nativeElement,'backgroundColor','yellow')
     this.render.setStyle(this.ele.nativeElement,'cursor','pointer')
    }
+
+   @HostListener('click') onclick(){
+    this.render.setStyle(this.ele.nativeElement, 'backgroundColor','red')
+    this.render.setStyle(this.ele.nativeElement, 'color','white')
+   }
    
 }

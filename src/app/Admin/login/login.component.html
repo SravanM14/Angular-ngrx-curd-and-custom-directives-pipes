@@ -1,8 +1,44 @@
 
+ <h1 Hovercolor>Hi h1 from LOGIN -COMPONENt</h1>
+<!--<h2>{{area}}</h2>
+<button (click)="setHeight()">changeHeight</button>
+<ng-content></ng-content> -->
 
-<button (click)="sendDataBackmethod()">SendDatafromchild</button>
+
+<!-- <form #temp="ngForm" (ngSubmit)="onSubmit(temp)">
+   <input name="name" ngModel required #name="ngModel" id="name" type="text">
+   <div *ngIf=" name.touched && name.invalid" style="color:red">
+    Name is Required
+   </div>
+   <input name="age" #age="ngModel" ngModel required id="age" type="number">
+   <div *ngIf="age.touched &&age.invalid" style="color:red">
+    Age is Required
+   </div>
+
+   <button type="submit" [disabled]="temp.invalid">Submit</button>
+</form> -->
+
+
+<form [formGroup]="MyForm">
+    <input formControlName="firstName">
+    <input formControlName="lastName">
+    <input formControlName="age">
+<br/>
+<div formArrayName="skills">
+    <div *ngFor="let skill of skills.controls; let i = index">
+      <div  [formGroupName]="i">
+         <input formControlName="skill">
+         <input formControlName="experience">
+         <button (click)="remove(i)">remove</button>
+      </div>
+   </div>
+</div>
+
+   <button (click)="addSkill()">Add Skill</button>
+
+    <button type="submit" [disabled]="MyForm.invalid" (click)="Submit()">Submit</button>
+</form>
 
 
 
 
-<ng-content></ng-content>

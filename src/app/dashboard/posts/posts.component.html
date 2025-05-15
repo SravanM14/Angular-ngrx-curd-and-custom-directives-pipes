@@ -1,1 +1,12 @@
-<p>posts works!</p>
+<mat-form-field class="example-form-field">
+    <input matInput type="text"  [formControl]="searchPosts">
+</mat-form-field>
+
+<ul>
+@for (item of result; track $index) {
+<li>{{item}}</li>
+}
+</ul>
+
+
+<div>{{'12 Dec 1995' | dateFormat}}</div>
